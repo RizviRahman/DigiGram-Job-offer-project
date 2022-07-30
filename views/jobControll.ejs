@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
+    <link	rel="stylesheet" href="../css/jodit-3.18.4/build/jodit.min.css"/>
+    <link rel="stylesheet" href="../assets/vendor/animate/animate.css">
+
+  <link rel="stylesheet" href="../assets/css/bootstrap.css">
+
+  <link rel="stylesheet" href="../assets/css/maicons.css">
+
+  <link rel="stylesheet" href="../assets/vendor/owl-carousel/css/owl.carousel.css">
+
+  <link rel="stylesheet" href="../assets/css/theme.css">
+    <script src="../css/jodit-3.18.4/build/jodit.min.js"></script>
+
+    <title>Symetic Ing - Job Offer</title>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light navbar-float">
+    <div class="container">
+    
+    <img src="..\assets\img\logo.png" width = "7%">
+    <a href="\" class="navbar-brand">SYMETIC<span class="text-primary"> ING.</span></a>
+
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse collapse" id="navbarContent">
+        <ul class="navbar-nav ml-lg-4 pt-3 pt-lg-0">
+        <li class="nav-item active">
+            <a href="\" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+            <a href="\about" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+            <a href="\services" class="nav-link">Services</a>
+        </li>
+        <li class="nav-item">
+            <a href="\job-offers" class="nav-link">Job Offers</a>
+        </li>
+        <li class="nav-item">
+            <a href="\contact" class="nav-link">Contact</a>
+        </li>
+        </ul>
+        <% if(user){ %>
+          <div class="ml-auto">
+            <a href="#" class="btn btn-outline rounded-pill"><%= user.name %></a>
+          </div>
+        <% }%>
+          
+    </div>
+    </div>
+</nav>
+
+    <div class="container" style="margin-top: 120px;">
+        <a type="button" class="btn btn-primary" href="/add-job">Add Job</a>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Job Title</th>
+                <th scope="col">Location</th>
+                <th scope="col">Status</th>
+                <th scope="col">Description</th>
+                <th scope="col">actions</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% jobs.forEach(function(job) { %>
+              <tr>
+                <th scope="row">1</th>
+                <td><%= job.title%></td>
+                <td><%= job.location%></td>
+                <td><%= job.status%></td>
+                <td><%= job.description%></td>
+                <td>
+                    <form action="/job-offers/job-list" method="PUT"><button type="submit" class="btn btn-warning">Edit</button> </form>
+                    <form action="/job-offers/job-list" method="DELETE"><button type="button" class="btn btn-danger">Delete</button> </form>
+                </td>
+              </tr>
+              <% }) %>
+              <!-- <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+              </tr> -->
+            </tbody>
+          </table>
+    </div>
+
+
+    
+    <script src="css/bootstrap/js/bootstrap.min.js"></script>
+    
+    <script>
+      const editor = Jodit.make('#editor');
+    </script>
+</body>
+</html>

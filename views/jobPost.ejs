@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
+    <link	rel="stylesheet" href="../css/jodit-3.18.4/build/jodit.min.css"/>
+    <link rel="stylesheet" href="../assets/vendor/animate/animate.css">
+
+  <link rel="stylesheet" href="../assets/css/bootstrap.css">
+
+  <link rel="stylesheet" href="../assets/css/maicons.css">
+
+  <link rel="stylesheet" href="../assets/vendor/owl-carousel/css/owl.carousel.css">
+
+  <link rel="stylesheet" href="../assets/css/theme.css">
+    <script src="../css/jodit-3.18.4/build/jodit.min.js"></script>
+
+    <title>Symetic Ing - Job Offer</title>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light navbar-float">
+    <div class="container">
+    
+    <img src="..\assets\img\logo.png" width = "7%">
+    <a href="\" class="navbar-brand">SYMETIC<span class="text-primary"> ING.</span></a>
+
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse collapse" id="navbarContent">
+        <ul class="navbar-nav ml-lg-4 pt-3 pt-lg-0">
+        <li class="nav-item active">
+            <a href="\" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+            <a href="\about" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+            <a href="\services" class="nav-link">Services</a>
+        </li>
+        <li class="nav-item">
+            <a href="\job-offers" class="nav-link">Job Offers</a>
+        </li>
+        <li class="nav-item">
+            <a href="\contact" class="nav-link">Contact</a>
+        </li>
+        </ul>
+        <% if(user){ %>
+          <div class="ml-auto">
+            <a href="#" class="btn btn-outline rounded-pill"><%= user.name %></a>
+          </div>
+        <% }%>
+          
+    </div>
+    </div>
+</nav>
+
+
+
+    <div class="container" style="margin-top: 120px;">
+        <form action="/job-offers/job-post" method="POST">
+
+          <div class="row g-2" style="margin: 15px 0;" >
+            <div class="col-md-7">
+              <label for="companyName" class="form-label"><strong>Company Name</strong></label>
+              <input type="text" name="companyName" class="form-control" aria-describedby="companyName">
+            </div>
+            <div class="col-md-5">
+              <label for="location" class="form-label"><strong>Location</strong></label>
+              <input type="text" name="location" class="form-control" aria-describedby="companyName">
+            </div>
+          </div>
+            
+            
+            <div class="row g-3" style="margin-bottom: 10px;  padding: 0 15px;">
+
+              <div class="col-md-5">
+                <select name="jobCategory" class="form-select" aria-label="Default select example">
+                  <option selected>Job Category</option>
+                  <option value="Energy">Energy</option>
+                  <option value="Environment">Environment</option>
+                  <option value="IT">IT</option>
+                  <option value="Industry">Industry</option>
+                </select>
+              </div>
+              <div class="col-md-1"></div>
+              <div class="col-md-1">
+                <label class="form-check-label"><strong>Job Type:</strong></label>
+              </div>
+              <div class="col-md-3">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="jobType" value="Full Time">
+                  <label class="form-check-label">Part Time</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="jobType" value="Part Time">
+                  <label class="form-check-label">Full Time</label>
+                </div>
+              </div>
+
+              <div class="col-md-2">
+                <strong>Date: </strong><input type="date" id="jobDate" name="Date">
+              </div>
+
+            </div>
+  
+          
+
+            <div class="col-md-12">
+              <textarea name="description" id="editor"></textarea>
+            </div>
+            
+
+            
+
+            <button type="submit" class="btn btn-primary" style="margin: auto 0;">Submit</button>
+        </form>
+    </div>
+
+
+    
+    <script src="css/bootstrap/js/bootstrap.min.js"></script>
+    
+    <script>
+      const editor = Jodit.make('#editor');
+    </script>
+</body>
+</html>

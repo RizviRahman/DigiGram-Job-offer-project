@@ -31,6 +31,48 @@ router.get("/", (req, res) => {
   
 
 
+
+// POST A JOB demo
+router.get("/job-post", (req, res) => {
+  res.render("jobPost", { user: req.session.user }); 
+});
+
+
+router.post("/job-post", (req, res) => {
+    console.log(req.body); 
+});
+
+
+// POST A JOB demo
+router.get("/job-list", (req, res) => {
+  // res.render("jobPost", { user: req.session.user }); 
+  Job.find()
+      .select({
+        _id: 0,
+        __v: 0
+      })
+    //   .limit(2)
+    .exec((err, data) => {
+        if (err) {
+            res.status(500).json({
+                error: "There was a server side error!",
+            });
+        } else {
+          res.render("jobControll", { user: req.session.user, jobs: data });
+        }
+    });
+});
+
+
+router.post("/job-list", (req, res) => {
+    console.log(req.body); 
+});
+
+
+
+
+
+
 // POST A JOB
 router.post("/", (req, res) => {
     const newJob = new Job(req.body);
