@@ -19,18 +19,28 @@ app.use(express.static(path.join(__dirname,"public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
+const tenMin = 1000*60*60*10 ;
 app.use(
     session({
         secret: "secret",
         resave: false,
         saveUninitialized: false,
-        // cookie: { secure: true , maxAge: 360000 }
+        cookie: { maxAge: tenMin }
     })
 );
 
 
 app.use("/", mainRouter);
 
+app.get('/logout',(req,res)=>{
+    req.session.destroy((err) => {
+        if(err) {
+            return console.log(err);
+        }
+        res.redirect('/');
+    });
+});
 
 
 app.listen(process.env.PORT, ()=>{

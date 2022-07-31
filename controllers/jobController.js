@@ -7,10 +7,9 @@ const Job = new mongoose.model("Job", jobSchema);
 
 
 // GET ALL THE JOBS AS NORMAL USER
-router.get("/", (req, res) => {
+router.get("/api", (req, res) => {
     Job.find({ status: "Active" })
       .select({
-        _id: 0,
         __v: 0,
         status: 0
       })
@@ -30,69 +29,8 @@ router.get("/", (req, res) => {
 });
   
 
-
-
-// POST A JOB demo
-router.get("/job-post", (req, res) => {
-  res.render("jobPost", { user: req.session.user }); 
-});
-
-
-router.post("/job-post", (req, res) => {
-    console.log(req.body); 
-});
-
-
-// POST A JOB demo
-router.get("/job-list", (req, res) => {
-  // res.render("jobPost", { user: req.session.user }); 
-  Job.find()
-      .select({
-        _id: 0,
-        __v: 0
-      })
-    //   .limit(2)
-    .exec((err, data) => {
-        if (err) {
-            res.status(500).json({
-                error: "There was a server side error!",
-            });
-        } else {
-          res.render("jobControll", { user: req.session.user, jobs: data });
-        }
-    });
-});
-
-
-router.post("/job-list", (req, res) => {
-    console.log(req.body); 
-});
-
-
-
-
-
-
-// POST A JOB
-router.post("/", (req, res) => {
-    const newJob = new Job(req.body);
-    newJob.save((err) => {
-      if (err) {
-        res.status(500).json({
-            error: "There was a server side error!",
-        });
-      } else {
-            res.status(200).json({
-            message: "Job successfully inserted!",
-            });
-            console.log(req.body);
-        }
-    });
-});
-
-
 // GET A JOB by ID
-router.get("/:id", (req, res) => {
+router.get("/api/:id", (req, res) => {
   Job.find({ _id: req.params.id }, (err, data) => {
       if (err) {
           res.status(500).json({
@@ -108,55 +46,154 @@ router.get("/:id", (req, res) => {
 });
 
 
-// UPDATE a JOB
-router.put("/:id", (req, res) => {
-    console.log(req.body);
-    const result = Job.findByIdAndUpdate(
-      { _id: req.params.id },
-      {
-        $set: {
-          category: req.body.category,
-          companyName: req.body.companyName,
-          title: req.body.title,
-          description: req.body.description,
-          type: req.body.type,
-          location: req.body.location
-        },
-      },
-      {
-        new: true,
-        useFindAndModify: false,
-      },
-      (err) => {
-        if (err) {
+// GET ALL THE JOBS AS NORMAL USER
+router.get("/", (req, res) => {
+  Job.find({ status: "Active" })
+    .select({
+      __v: 0,
+      status: 0
+    })
+  //   .limit(2)
+  .exec((err, data) => {
+      if (err) {
           res.status(500).json({
-            error: "There was a server side error!",
+              error: "There was a server side error!",
           });
-        } else {
-          res.status(200).json({
-            message: "Job successfully updated!",
-          });
-        }
+      } else {
+          res.status(200).render("jobOffer",{ jobs: data });
       }
-    );
-    // console.log(result);
+  });
 });
 
 
-// DELETE a JOB
-router.delete("/:id", (req, res) => {
-    Job.deleteOne({ _id: req.params.id }, (err) => {
-      if (err) {
-        res.status(500).json({
-          error: "There was a server side error!",
-        });
-      } else {
-        res.status(200).json({
-          message: "Job successfully deleted!",
-        });
-      }
-    });
-  });
+
+
+
+// // POST A JOB demo
+// router.get("/job-post", (req, res) => {
+//   res.render("jobPost", { user: req.session.user }); 
+// });
+
+
+// router.post("/job-post", (req, res) => {
+//     console.log(req.body); 
+// });
+
+
+// // POST A JOB demo
+// router.get("/job-list", (req, res) => {
+//   // res.render("jobPost", { user: req.session.user }); 
+//   Job.find()
+//       .select({
+//         _id: 0,
+//         __v: 0
+//       })
+//     //   .limit(2)
+//     .exec((err, data) => {
+//         if (err) {
+//             res.status(500).json({
+//                 error: "There was a server side error!",
+//             });
+//         } else {
+//           res.render("jobControll", { user: req.session.user, jobs: data });
+//         }
+//     });
+// });
+
+
+// router.post("/job-list", (req, res) => {
+//     console.log(req.body); 
+// });
+
+
+
+
+
+
+// // POST A JOB
+// router.post("/", (req, res) => {
+//     const newJob = new Job(req.body);
+//     newJob.save((err) => {
+//       if (err) {
+//         res.status(500).json({
+//             error: "There was a server side error!",
+//         });
+//       } else {
+//             res.status(200).json({
+//             message: "Job successfully inserted!",
+//             });
+//             console.log(req.body);
+//         }
+//     });
+// });
+
+
+// // GET A JOB by ID
+// router.get("/:id", (req, res) => {
+//   Job.find({ _id: req.params.id }, (err, data) => {
+//       if (err) {
+//           res.status(500).json({
+//               error: "There was a server side error!",
+//           });
+//       } else {
+//           res.status(200).json({
+//               result: data,
+//               message: "Success",
+//           });
+//       }
+//   });
+// });
+
+
+// // UPDATE a JOB
+// router.put("/:id", (req, res) => {
+//     console.log(req.body);
+//     const result = Job.findByIdAndUpdate(
+//       { _id: req.params.id },
+//       {
+//         $set: {
+//           category: req.body.category,
+//           companyName: req.body.companyName,
+//           title: req.body.title,
+//           description: req.body.description,
+//           type: req.body.type,
+//           location: req.body.location
+//         },
+//       },
+//       {
+//         new: true,
+//         useFindAndModify: false,
+//       },
+//       (err) => {
+//         if (err) {
+//           res.status(500).json({
+//             error: "There was a server side error!",
+//           });
+//         } else {
+//           res.status(200).json({
+//             message: "Job successfully updated!",
+//           });
+//         }
+//       }
+//     );
+//     // console.log(result);
+// });
+
+
+// // DELETE a JOB
+// router.delete("/:id", (req, res) => {
+//     Job.deleteOne({ _id: req.params.id }, (err) => {
+//       if (err) {
+//         res.status(500).json({
+//           error: "There was a server side error!",
+//         });
+//       } else {
+//         res.status(200).json({
+//           message: "Job successfully deleted!",
+//         });
+//       }
+//     });
+//   });
 
 
 

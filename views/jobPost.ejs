@@ -51,7 +51,7 @@
         </ul>
         <% if(user){ %>
           <div class="ml-auto">
-            <a href="#" class="btn btn-outline rounded-pill"><%= user.name %></a>
+            Welcome <strong><%= user.name %></strong> <a href="\logout" class="btn btn-outline rounded-pill">Logout</a>
           </div>
         <% }%>
           
@@ -62,24 +62,36 @@
 
 
     <div class="container" style="margin-top: 120px;">
-        <form action="/job-offers/job-post" method="POST">
+        <form action="/admin-path" method="POST">
 
           <div class="row g-2" style="margin: 15px 0;" >
             <div class="col-md-7">
               <label for="companyName" class="form-label"><strong>Company Name</strong></label>
               <input type="text" name="companyName" class="form-control" aria-describedby="companyName">
             </div>
+
             <div class="col-md-5">
-              <label for="location" class="form-label"><strong>Location</strong></label>
-              <input type="text" name="location" class="form-control" aria-describedby="companyName">
+              <label for="title" class="form-label"><strong>Job Title</strong></label>
+              <input type="text" name="title" class="form-control" aria-describedby="companyName">
             </div>
+
           </div>
             
             
-            <div class="row g-3" style="margin-bottom: 10px;  padding: 0 15px;">
+            <div class="row g-1" style="margin-bottom: 10px;  padding: 0 15px;">
 
-              <div class="col-md-5">
-                <select name="jobCategory" class="form-select" aria-label="Default select example">
+
+              <div class="col-md-12">
+                <!-- <label for="location" class="form-label"><strong>Location</strong></label> -->
+                <strong>Location:</strong><input type="text" name="location" class="form-control" aria-describedby="companyName">
+              </div>
+
+            </div>
+
+            <div class="row g-4" style="margin-bottom: 10px;  padding: 0 15px;">
+
+              <div class="col-md-3">
+                <select name="category" class="form-select" aria-label="Default select example">
                   <option selected>Job Category</option>
                   <option value="Energy">Energy</option>
                   <option value="Environment">Environment</option>
@@ -87,11 +99,11 @@
                   <option value="Industry">Industry</option>
                 </select>
               </div>
-              <div class="col-md-1"></div>
-              <div class="col-md-1">
+
+              <div class="col-md-2">
                 <label class="form-check-label"><strong>Job Type:</strong></label>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-4">
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="radio" name="jobType" value="Full Time">
                   <label class="form-check-label">Part Time</label>
@@ -102,10 +114,10 @@
                 </div>
               </div>
 
-              <div class="col-md-2">
+              <div class="col-md-3">
                 <strong>Date: </strong><input type="date" id="jobDate" name="Date">
               </div>
-
+            
             </div>
   
           
