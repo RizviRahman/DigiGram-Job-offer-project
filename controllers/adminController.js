@@ -61,6 +61,33 @@ router.post("/", (req, res) => {
 
 
 
+// update job - form route
+router.get("/update", (req, res) => {
+  // console.log(req.query);
+
+  Job.findById(req.query.id)
+        .select({
+          __v: 0
+        })
+        //   .limit(2)
+        .exec((err, data) => {
+          if (err) {
+              res.status(500).json({
+                  error: "There was a server side error!",
+              });
+          } else {
+            // res.render("jobControll", { user: req.session.user, jobs: data });
+            res.render("jobUpdate", { user: req.session.user, job: data });
+          }
+        });
+
+
+  // res.render("jobUpdate", { user: req.session.user });
+});
+
+
+
+
 // UPDATE a JOB
 router.put("/:id", (req, res) => {
     console.log(req.body);

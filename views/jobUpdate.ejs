@@ -67,12 +67,12 @@
           <div class="row g-2" style="margin: 15px 0;" >
             <div class="col-md-7">
               <label for="companyName" class="form-label"><strong>Company Name</strong></label>
-              <input type="text" name="companyName" class="form-control" aria-describedby="companyName">
+              <input type="text" name="companyName" class="form-control" aria-describedby="companyName" value="<%= job.companyName%>">
             </div>
 
             <div class="col-md-5">
               <label for="title" class="form-label"><strong>Job Title</strong></label>
-              <input type="text" name="title" class="form-control" aria-describedby="companyName">
+              <input type="text" name="title" class="form-control" aria-describedby="companyName" value="<%= job.title%>">
             </div>
 
           </div>
@@ -83,7 +83,7 @@
 
               <div class="col-md-12">
                 <!-- <label for="location" class="form-label"><strong>Location</strong></label> -->
-                <strong>Location:</strong><input type="text" name="location" class="form-control" aria-describedby="companyName">
+                <strong>Location:</strong><input type="text" name="location" class="form-control" aria-describedby="companyName" value="<%= job.location %>">
               </div>
 
             </div>
@@ -92,11 +92,11 @@
 
               <div class="col-md-3">
                 <select name="category" class="form-select" aria-label="Default select example">
-                  <option selected>Job Category</option>
-                  <option value="Energy">Energy</option>
-                  <option value="Environment">Environment</option>
-                  <option value="IT">IT</option>
-                  <option value="Industry">Industry</option>
+                  <!-- <option selected>Job Category</option> -->
+                  <option value="Energy" <%= job.category == 'Energy' ? 'selected' : '' %>>Energy</option>
+                  <option value="Environment" <%= job.category == 'Environment' ? 'selected' : '' %>>Environment</option>
+                  <option value="IT" <%= job.category == 'IT' ? 'selected' : '' %>>IT</option>
+                  <option value="Industry" <%= job.category == 'Industry' ? 'selected' : '' %>>Industry</option>
                 </select>
               </div>
 
@@ -105,25 +105,26 @@
               </div>
               <div class="col-md-4">
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="type" value="Full Time">
-                  <label class="form-check-label">Part Time</label>
+                  <input class="form-check-input" type="radio" name="type" value="Full Time" <%= job.type == 'Full Time' ? 'checked' : '' %>>
+                  <label class="form-check-label">Full Time</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="type" value="Part Time">
-                  <label class="form-check-label">Full Time</label>
+                  <input class="form-check-input" type="radio" name="type" value="Part Time" <%= job.type == 'Part Time' ? 'checked' : '' %>>
+                  <label class="form-check-label">Part Time</label>
                 </div>
               </div>
 
               <div class="col-md-3">
-                <strong>Date: </strong><input type="date" id="jobDate" name="Date">
+                <strong>Date: </strong><input type="date" id="jobDate" name="Date" value="<%=job.date.getFullYear()%>-<%=((job.date.getMonth()+1)<10 ? '0'+(job.date.getMonth()+1) : job.date.getMonth())%>-<%=(job.date.getDate()<10 ? '0'+job.date.getDate() : job.date.getDate())%>%>">
               </div>
             
             </div>
+            <!-- value="<%=job.date.getFullYear()%>-<%=(job.date.getMonth()<12 ? "0"+job.date.getMonth() : job.date.getMonth())%>-<%=job.date.getDate()%>" -->
   
           
 
             <div class="col-md-12">
-              <textarea name="description" id="editor"></textarea>
+              <textarea name="description" id="editor"  value="<%= job.description %>"></textarea>
             </div>
             
 
