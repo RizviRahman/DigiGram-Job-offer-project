@@ -62,7 +62,7 @@
 
 
     <div class="container" style="margin-top: 120px;">
-        <form action="/admin-path" method="POST">
+        <form action="/admin-path/<%=job._id%>" method="POST">
 
           <div class="row g-2" style="margin: 15px 0;" >
             <div class="col-md-7">
@@ -88,9 +88,9 @@
 
             </div>
 
-            <div class="row g-4" style="margin-bottom: 10px;  padding: 0 15px;">
+            <div class="row g-5" style="margin-bottom: 10px;  padding: 0 15px;">
 
-              <div class="col-md-3">
+              <div class="col-md-2">
                 <select name="category" class="form-select" aria-label="Default select example">
                   <!-- <option selected>Job Category</option> -->
                   <option value="Energy" <%= job.category == 'Energy' ? 'selected' : '' %>>Energy</option>
@@ -100,11 +100,13 @@
                 </select>
               </div>
 
-              <div class="col-md-2">
+              <!-- <div class="col-md-2">
                 <label class="form-check-label"><strong>Job Type:</strong></label>
-              </div>
+              </div> -->
+              <div class="col-md-1"></div>
               <div class="col-md-4">
                 <div class="form-check form-check-inline">
+                  <strong> Job Type:&nbsp; </strong>
                   <input class="form-check-input" type="radio" name="type" value="Full Time" <%= job.type == 'Full Time' ? 'checked' : '' %>>
                   <label class="form-check-label">Full Time</label>
                 </div>
@@ -117,6 +119,14 @@
               <div class="col-md-3">
                 <strong>Date: </strong><input type="date" id="jobDate" name="Date" value="<%=job.date.getFullYear()%>-<%=((job.date.getMonth()+1)<10 ? '0'+(job.date.getMonth()+1) : job.date.getMonth())%>-<%=(job.date.getDate()<10 ? '0'+job.date.getDate() : job.date.getDate())%>%>">
               </div>
+              
+              <div class="col-md-2">
+                <select name="status" class="form-select" aria-label="Default select example">
+                  <!-- <option selected>Job status</option> -->
+                  <option value="Active" <%= job.status == 'Active' ? 'selected' : '' %>>Active</option>
+                  <option value="Inactive" <%= job.status == 'Inactive' ? 'selected' : '' %>>Inactive</option>
+                </select>
+              </div>
             
             </div>
             <!-- value="<%=job.date.getFullYear()%>-<%=(job.date.getMonth()<12 ? "0"+job.date.getMonth() : job.date.getMonth())%>-<%=job.date.getDate()%>" -->
@@ -124,7 +134,7 @@
           
 
             <div class="col-md-12">
-              <textarea name="description" id="editor"  value="<%= job.description %>"></textarea>
+              <textarea name="description" id="editor"></textarea>
             </div>
             
 
@@ -139,7 +149,46 @@
     <script src="css/bootstrap/js/bootstrap.min.js"></script>
     
     <script>
+
+      function htmlDecode(input){
+        let e = document.createElement('div');
+        e.innerHTML = input;
+        let output = e.childNodes[0].nodeValue;
+        e.remove();
+        return output;
+      }
+
       const editor = Jodit.make('#editor');
+
+      let preValue = htmlDecode('<%= job.description %>');
+      // let preValue = '<p>For <code>date</code> inputs, the value of <code>step</code> is given in days; and is treated as a number of milliseconds equal to 86,400,000 times the <code>step</code> value (the underlying numeric value is in milliseconds). The default value of <code>step</code> is 1, indicating 1 day.<br></p>';
+      editor.value = preValue;
+      // console.log(typeof(preValue));
+      // console.log(typeof('<%= job.description %>'));
+      // console.log(preValue);
+      // console.log(toString('<%= job.description %>'));
+      // editor.value = '<%= job.description %>'
+
+      // function updateJob(id)
+      // {
+      //   fetch("/admin-path/"+id, { method: 'PUT'})
+      //     .then(res => res.json())
+      //     .then(data => {
+      //       console.log(data.message);
+      //       let msgHtml= null;
+      //       if(data.message){
+      //         msgHtml = `<div class="alert alert-success" role="alert">${data.message}</div>`;
+      //       } else if(data.error){
+      //         msgHtml =`<div class="alert alert-danger" role="alert">${data.error}</div>`;
+      //       }
+      //       const msg = document.getElementById("message");
+      //       const jobTOdelete = document.getElementById(id);
+      //       jobTOdelete.remove();
+      //       // msg
+      //       msg.innerHTML = msgHtml;
+      //     });
+      // }
+
     </script>
 </body>
 </html>

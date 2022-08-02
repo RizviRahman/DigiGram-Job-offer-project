@@ -6,6 +6,7 @@ const dotenv = require("dotenv");
 
 const mainRouter = require("./router/mainRoute");
 const dbConnect = require("./controllers/dbController");
+const pathLog = require("./middleware/pathLog");
 
 dotenv.config();
 
@@ -31,7 +32,7 @@ app.use(
 );
 
 
-app.use("/", mainRouter);
+app.use("/",pathLog, mainRouter);
 
 app.get('/logout',(req,res)=>{
     req.session.destroy((err) => {
