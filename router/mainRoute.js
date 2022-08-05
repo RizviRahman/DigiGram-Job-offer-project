@@ -13,6 +13,7 @@ const loginRouter = require("../router/loginRouter");
 const signupRouter = require("../router/signupRouter");
 const adminRouter = require("../router/adminRouter");
 const policyRouter = require("../router/policyRouter");
+const frRouter = require("../router/frRouter");
 
 
 const router = express.Router();
@@ -25,7 +26,9 @@ router.use('/login', loginRouter);
 router.use('/signup', signupRouter);
 router.use('/admin-path', isAdmin, adminRouter);
 router.use('/policy', policyRouter);
-  
+
+router.use('/fr', frRouter);
+
 router.use('/', homeRouter);
 
 module.exports = router;

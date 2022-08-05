@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Symetic Ing - Contact</title>
+	<link rel="icon" href="../images/logoTitle.png" type="image/icon type">
+    <meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- stylesheet css -->
+ 
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/font-awesome.min.css">
+	<link rel="stylesheet" href="../css/nivo-lightbox.css">
+	<link rel="stylesheet" href="../css/nivo_themes/default/default.css">
+	<link rel="stylesheet" href="../css/templatemo-style.css">
+	<link rel="stylesheet" href="../css/responsive.css">
+	
+
+	<!-- google web font css -->
+	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+	<style>
+	* {
+		box-sizing: border-box;
+	  }
+	  
+	  body {
+		margin: 0;
+		font-family: Arial;
+		font-size: 17px;
+	  }
+	  
+	  #myVideo {
+		position: fixed;
+		right: 0;
+		bottom: -100px;
+		width: 1200px;
+		min-width: 100%; 
+		min-height: 100%;
+	  }
+	  
+	  .content {
+		position: fixed;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.5);
+		color: #f1f1f1;
+		width: 100%;
+		padding: 20px;
+	  }
+	
+</style>
+</head>
+
+
+<body>
+	<%- include('partials/navFR',{user: user, opt: 'contactFR'}); %> 
+
+<!-- contact header section -->
+<div id="contact-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12"></div>
+
+
+			<video autoplay muted loop id="myVideo">
+				<source src="../images/video.mp4" type="video/mp4">
+				Your browser does not support HTML5 video.
+			  </video>
+			  
+			  
+			  
+			  <script>
+			  var video = document.getElementById("myVideo");
+			 
+			  
+			  </script>
+
+<!-- contact section -->
+<div id="contact">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8 col-sm-12">
+				<h2>Contactez-nous</h2> 
+			
+		</div>
+			<div class="col-md-8 col-sm-8 mt30">
+				<form action="handler.php" method="post" role="form">
+					<div class="col-md-6 col-sm-6">
+                        <label for="name">NOM</label>
+                        <input name="name" type="text" class="form-control" id="name">
+                      <label for="email">EMAIL</label>
+                        <input name="email" type="email" class="form-control" id="email">
+					</div>
+					<div class="col-md-6 col-sm-6">
+						<label for="message">MESSAGE</label>
+						<textarea name="message" rows="6" class="form-control" id="message"></textarea>
+					</div>
+                    <div class="col-md-6 col-sm-6">
+                    	<button type="submit" name="submit" class="btn btn-default">ENVOYER</button>
+                    </div>
+				</form>
+			</div>
+			<div class="col-md-4 col-sm-4 address">
+				<div>
+					
+					<h3>Email</h3>
+					<p> contact@symetic-ing.com</p>
+				</div>
+				<div>
+					<h3>Téléphone</h3>
+					<p>+33 185401916</p>
+				</div>
+			</div>
+			<div class="col-md-12 col-sm-12 mt20">
+            	<h3>Location</h3>
+				<div class="google_map mt20">
+					<div class="containerIframe">
+						<iframe class="responsive-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2631.161398639235!2d1.9086631151196058!3d48.74061361694708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e69d2b2f3b9825%3A0xaf6b47b79469d6ea!2s2%20Rue%20des%20Commeres%2C%2078310%20Coigni%C3%A8res!5e0!3m2!1spt-PT!2sfr!4v1658829347294!5m2!1spt-PT!2sfr" width="900" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>		
+
+
+		</div>
+	</div>
+</div>
+
+
+<!-- footer section -->
+<%- include('partials/footerFR'); %>
+
+
+<!-- javascript js -->	
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>	
+<script src="../js/nivo-lightbox.min.js"></script>
+<script src="../js/custom.js"></script>
+<script src="../form.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+
+</body>
+
+</html>
