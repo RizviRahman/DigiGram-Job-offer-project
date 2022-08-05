@@ -184,6 +184,18 @@
     font-weight: 600;
     margin-bottom: 15px;
   }
+  .card__body h2 {
+    color: var(--dark);
+    font-size: 15px;
+    line-height: 1.4;
+    transform: translate(-20%, -85%);
+  }
+  .card__body h4 {
+    color: var(--dark);
+    font-size: 15px;
+    line-height: 1.4;
+    transform: translate(-16%, -60%);
+  }
   
   .card__body p {
     color: var(--dark);
