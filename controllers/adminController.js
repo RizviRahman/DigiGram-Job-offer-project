@@ -36,6 +36,7 @@ router.get("/", (req, res) => {
                   error: "There was a server side error!",
               });
           } else {
+            // res.render("jobControll", { user: req.session.user, jobs: data });
             res.render("jobControll", { user: req.session.user, jobs: data });
           }
         });

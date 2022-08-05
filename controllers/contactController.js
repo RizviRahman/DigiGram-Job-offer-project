@@ -1,5 +1,5 @@
 function getContact(req, res, next){
-    res.render("contact");
+    res.render("contact",{user: req.session.user});
 }
 
 

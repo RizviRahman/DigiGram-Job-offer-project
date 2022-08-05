@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Symetic Ing - Admin</title>
+	<link rel="icon" href="images/logoTitle.png" type="image/icon type">
+    <meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- stylesheet css -->
+ 
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/nivo-lightbox.css">
+	<link rel="stylesheet" href="css/nivo_themes/default/default.css">
+	<link rel="stylesheet" href="css/templatemo-style.css">
+	<link rel="stylesheet" href="css/responsive.css">
+
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	
+
+	
+
+
+	
+
+	<!-- google web font css -->
+	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+	<style>
+	* {
+		box-sizing: border-box;
+	  }
+	  
+	  body {
+		margin: 0;
+		font-family: Arial;
+		font-size: 17px;
+	  }
+	  
+	  #myVideo {
+		position: fixed;
+		right: 0;
+		bottom: -100px;
+		width: 1200px;
+		min-width: 100%; 
+		min-height: 100%;
+	  }
+	  
+	  .content {
+		position: fixed;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.5);
+		color: #f1f1f1;
+		width: 100%;
+		padding: 20px;
+	  }
+	
+</style>
+</head>
+
+
+<body>
+	
+
+<%- include('partials/nav', {user: user, opt: 'admin'}); %>
+
+<!-- contact header section -->
+<div id="contact-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12"></div>
+
+
+			<video autoplay muted loop id="myVideo">
+				<source src="images/video.mp4" type="video/mp4">
+				Your browser does not support HTML5 video.
+			  </video>
+			  
+			  
+			  
+			  <script>
+			  var video = document.getElementById("myVideo");
+			 
+			  
+			  </script>
+
+<!-- contact section -->
+<div id="contact">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+
+                <div class="row">
+                    <div class="col-lg-10 mx-auto mb-4">
+                        <div class="section-title text-center ">
+                
+                            <div class="container">	
+                                <div class="button">
+                                    <a class="btn btn-primary" href="/admin-path/add-job">
+                                    <span>Add Job</span>
+                                    </a>
+                                    <!-- <div class="dot"></div> -->
+                                    <div id="message"></div>
+                                </div>
+                            
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <a type="button" class="btn btn-primary " href="/admin-path/add-job">Add Job</a> -->
+                <div id="message"></div>
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Job Title</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% jobs.forEach(function(job, index) { %>
+                    <tr id="<%= job._id %>">
+                        <th scope="row"><%= index+1%></th>
+                        <td><%= job.title%></td>
+                        <td><%= job.location%></td>
+                        <td><%= job.status%></td>
+                        <td><%- job.description %></td>
+                        <td>
+                            <a href="/admin-path/update?id=<%= job._id %>" type="submit" class="btn btn-warning">Edit</a>
+                            <button type="submit" onclick="deleteJob('<%= job._id %>')" class="btn btn-danger">Delete</button> 
+                            </td>
+                        </tr>
+                        <% }) %>
+                    
+                    </tbody>
+                </table>
+
+                <a type="button" class="btn btn-danger" href="/logout">Logout</a> 
+
+            </div>		
+		</div>
+	</div>
+</div>
+
+
+<!-- footer -->
+<%- include('partials/footer'); %>
+
+
+<!-- javascript js -->	
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>	
+    <script src="js/nivo-lightbox.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="form.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+    <script src="css/bootstrap/js/bootstrap.min.js"></script>
+            
+    <script>
+        // const editor = Jodit.make('#editor');
+        function displayJob(jobs){
+            console.log(jobs);
+        }
+        
+        let message = null;
+        console.log(window.location.href);
+        const urlParams = new URLSearchParams(window.location.search);
+        const myParam = urlParams.get('myParam');
+        console.log(window.location);
+
+        if(window.location.search){
+        const msg = document.getElementById("message");
+        const query = window.location.search.replace('?', '').split('=');
+        if(query[0]=='add'){
+            if(query[1]=='0'){
+            message = `<div class="alert alert-danger" role="alert">Can not be added due to some errors...</div>`;
+            }else if(query[1]=='1'){
+            message = `<div class="alert alert-success" role="alert">Job successfully added!</div>`;
+            } 
+        }else if(query[0]=='update'){
+            if(query[1]=='0'){
+            message = `<div class="alert alert-danger" role="alert">Can not be updated due to some errors...</div>`;
+            }else if(query[1]=='1'){
+            message = `<div class="alert alert-success" role="alert">Job successfully updated!</div>`;
+            } 
+        }
+        msg.innerHTML = message;
+
+        }
+
+        function deleteJob(id)
+        {
+        fetch("/admin-path/"+id, { method: 'DELETE'})
+            .then(res => res.json())
+            .then(data => {
+            console.log(data.message);
+            let msgHtml= null;
+            if(data.message){
+                msgHtml = `<div class="alert alert-success" role="alert">${data.message}</div>`;
+            } else if(data.error){
+                msgHtml =`<div class="alert alert-danger" role="alert">${data.error}</div>`;
+            }
+            const msg = document.getElementById("message");
+            const jobTOdelete = document.getElementById(id);
+            jobTOdelete.remove();
+            // msg
+            msg.innerHTML = msgHtml;
+            });
+        }
+        
+    </script>
+
+</body>
+
+</html>

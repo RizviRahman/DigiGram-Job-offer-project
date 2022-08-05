@@ -1,5 +1,5 @@
 function getAbout(req, res, next){
-    res.render("about");
+    res.render("about",{user: req.session.user});
 }
 
 

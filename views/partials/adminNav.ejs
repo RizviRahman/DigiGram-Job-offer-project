@@ -1,0 +1,29 @@
+<style>
+    img {
+      vertical-align: middle;
+      max-width: 150px;
+      margin-left: 50px;
+    }
+    nav{
+      border-radius: 10px;
+    }
+  </style>
+<nav class="container navbar bg-dark col-md-12 col-sm-12">
+    <div class="container">
+        <a class="navbar-brand" href="/"><img src="../images/Symetic_inc.png"></a>
+             
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link text-light" href="\job-offers">Job Offers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link <%= (opt=='home'? 'text-body active' : 'text-light')%>" href="\admin-path">Job Controll</a>
+            </li>
+            
+            <li class="nav-item">
+              <a type="button" style="margin-left: 3px;" class="btn btn-warning" href="/logout"><strong>Logout</strong></a>
+            </li>
+          </ul>
+        <!-- <a type="button" class="btn btn-warning" href="/logout">Logout</a> -->
+    </div>
+  </nav>

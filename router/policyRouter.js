@@ -1,10 +1,10 @@
 const express = require("express");
-const { getServices } = require("../controllers/servicesController");
+const { getPolicy } = require("../controllers/policyController");
 
 const router = express.Router();
 
 
 // login page
-router.get("/", getServices);
+router.get('/', getPolicy);
 
 module.exports = router;

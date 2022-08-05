@@ -1,267 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Symetic Ing - About Us</title>
+	<link rel="icon" href="images/logoTitle.png" type="image/icon type">
+    <meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- stylesheet css -->
 
-  <meta name="copyright" content="MACode ID, https://macodeid.com">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/nivo-lightbox.css">
+	<link rel="stylesheet" href="css/nivo_themes/default/default.css">
+	<link rel="stylesheet" href="css/templatemo-style.css">
+	<link rel="stylesheet" href="css/menu.css">
+	<link rel="stylesheet" href="css/responsive.css">
 
-  <title>DigiGram - Free Agency Template</title>
+	<!-- google web font css -->
+	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="../assets/vendor/animate/animate.css">
+	<style>
 
-  <link rel="stylesheet" href="../assets/css/bootstrap.css">
-
-  <link rel="stylesheet" href="../assets/css/maicons.css">
-
-  <link rel="stylesheet" href="../assets/vendor/owl-carousel/css/owl.carousel.css">
-
-  <link rel="stylesheet" href="../assets/css/theme.css">
+	* {
+		box-sizing: border-box;
+	  }
+	  
+	  body {
+		margin: 0;
+		font-family: Arial;
+		font-size: 17px;
+	  }
+	  
+	  #myVideo {
+		position: fixed;
+		right: 0;
+		bottom: -100px;
+		width: 1200px;
+		min-width: 100%; 
+		min-height: 100%;
+	  }
+	  
+	  .content {
+		position: fixed;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.5);
+		color: #f1f1f1;
+		width: 100%;
+		padding: 20px;
+	  }
+	
+</style>
 
 </head>
 <body>
-
-  <!-- Back to top button -->
-  <div class="back-to-top"></div>
-
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
-      <div class="container">
-        <a href="\" class="navbar-brand">Digi<span class="text-primary">Gram.</span></a>
+	
+	
+	<%- include('partials/nav', {user: user, opt: 'about'}); %>	
   
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-  
-        <div class="navbar-collapse collapse" id="navbarContent">
-          <ul class="navbar-nav ml-lg-4 pt-3 pt-lg-0">
-            <li class="nav-item">
-              <a href="\" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item active">
-              <a href="\about" class="nav-link">About</a>
-            </li>
-            <li class="nav-item">
-              <a href="\services" class="nav-link">Services</a>
-            </li>
-            <li class="nav-item">
-              <a href="\job-offers" class="nav-link">Job Offers</a>
-            </li>
-            <li class="nav-item">
-              <a href="\contact" class="nav-link">Contact</a>
-            </li>
-          </ul>
-  
-          <div class="ml-auto">
-            <a href="#" class="btn btn-outline rounded-pill">Get a Quote</a>
-          </div>
-        </div>
-      </div>
-    </nav>
 
-    <div class="container mt-5">
-      <div class="page-banner">
-        <div class="row justify-content-center align-items-center h-100">
-          <div class="col-md-6">
-            <nav aria-label="Breadcrumb">
-              <ul class="breadcrumb justify-content-center py-0 bg-transparent">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active">About</li>
-              </ul>
-            </nav>
-            <h1 class="text-center">About Us</h1>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
+<!-- about section -->
 
-  <main>
-    <div class="page-section">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6 py-3">
-            <div class="img-fluid text-center">
-              <img src="../assets/img/bg_image_2.png" alt="">
-            </div>
-          </div>
-          <div class="col-lg-6 py-3 pr-lg-5">
-            <h2 class="title-section">We're <span class="marked">Dynamic</span> Team of Creatives People</h2>
-            <div class="divider"></div>
-            <p>We provide marketing services to startups & small business to looking for partner for their digital media, design & dev lead generation & communication.</p>
-            <a href="#" class="btn btn-primary">More Details</a>
-            <a href="#" class="btn btn-outline border ml-2">Success Stories</a>
-          </div>
-        </div>
-      </div> <!-- .container -->
-    </div> <!-- .page-section -->
+<div id="about-header">
+	<div class="container">
+		<div class="row">
+		
+			<div class="col-md-5 col-sm-3"></div>
 
-    <div class="page-section counter-section">
-      <div class="container">
-        <div class="row align-items-center text-center">
-          <div class="col-lg-4">
-            <p>Total Invest</p>
-            <h2>$<span class="number" data-number="816278"></span></h2>
-          </div>
-          <div class="col-lg-4">
-            <p>Yearly Revenue</p>
-            <h2>$<span class="number" data-number="216422"></span></h2>
-          </div>
-          <div class="col-lg-4">
-            <p>Growth Ration</p>
-            <h2><span class="number" data-number="73"></span>%</h2>
-          </div>
-        </div>
-      </div> <!-- .container -->
-    </div> <!-- .page-section -->
-  
-    <!-- Testimonials -->
-    <div class="page-section bg-light">
-      <div class="container">
-        
-        <div class="owl-carousel" id="testimonials">
-          <div class="item">
-            <div class="row align-items-center">
-              <div class="col-md-6 py-3">
-                <div class="testi-image">
-                  <img src="../assets/img/person/person_1.jpg" alt="">
-                </div>
-              </div>
-              <div class="col-md-6 py-3">
-                <div class="testi-content">
-                  <p>Necessitatibus ipsum magni accusantium consequatur delectus a repudiandae nemo quisquam dolorum itaque, tenetur, esse optio eveniet beatae explicabo sapiente quo.</p>
-                  <div class="entry-footer">
-                    <strong>Melvin Platje</strong> &mdash; <span class="text-grey">CEO Slurin Group</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-          <div class="item">
-            <div class="row align-items-center">
-              <div class="col-md-6 py-3">
-                <div class="testi-image">
-                  <img src="../assets/img/person/person_2.jpg" alt="">
-                </div>
-              </div>
-              <div class="col-md-6 py-3">
-                <div class="testi-content">
-                  <p>Repudiandae vero assumenda sequi labore ipsum eos ducimus provident a nam vitae et, dolorum temporibus inventore quaerat consectetur quos! Animi, qui ratione?</p>
-                  <div class="entry-footer">
-                    <strong>George Burke</strong> &mdash; <span class="text-grey">CEO Letro</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-        </div>
-      </div> <!-- .container -->
-    </div> <!-- .page-section -->
-    
-    <div class="page-section client-section">
-      <div class="container-fluid">
-        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 justify-content-center">
-          <div class="item">
-            <img src="../assets/img/clients/airbnb.png" alt="">
-          </div>
-          <div class="item">
-            <img src="../assets/img/clients/google.png" alt="">
-          </div>
-          <div class="item">
-            <img src="../assets/img/clients/stripe.png" alt="">
-          </div>
-          <div class="item">
-            <img src="../assets/img/clients/paypal.png" alt="">
-          </div>
-          <div class="item">
-            <img src="../assets/img/clients/mailchimp.png" alt="">
-          </div>
-        </div>
-      </div> <!-- .container-fluid -->
-    </div> <!-- .page-section -->
-  </main>
+			<video autoplay muted loop id="myVideo">
+				<source src="images/video.mp4" type="video/mp4">
+				Your browser does not support HTML5 video.
+			  </video>
 
-  <footer class="page-footer">
-    <div class="container">
-      <div class="row justify-content-center mb-5">
-        <div class="col-lg-3 py-3">
-          <h3>Digi<span class="text-primary">Gram.</span></h3>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-
-          <p><a href="#" >digigram@mail.com</a></p>
-          <p><a href="#">+00 1122 3344 5566</a></p>
-        </div>
-        <div class="col-lg-3 py-3">
-          <h5>Quick Links</h5>
-          <ul class="footer-menu">
-            <li><a href="#">How it works</a></li>
-            <li><a href="#">Security</a></li>
-            <li><a href="#">Pricing</a></li>
-            <li><a href="#">Resources</a></li>
-            <li><a href="#">Report a Bug</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-3 py-3">
-          <h5>About Us</h5>
-          <ul class="footer-menu">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Jobs</a></li>
-            <li><a href="#">Our Teams</a></li>
-            <li><a href="#">Testimonials</a></li>
-            <li><a href="#">News & Press</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-3 py-3">
-          <h5>Subscribe</h5>
-          <form action="#">
-            <input type="text" class="form-control" placeholder="Enter your mail..">
-          </form>
-
-          <div class="sosmed-button mt-4">
-            <a href="#"><span class="mai-logo-facebook-f"></span></a>
-            <a href="#"><span class="mai-logo-twitter"></span></a>
-            <a href="#"><span class="mai-logo-google"></span></a>
-            <a href="#"><span class="mai-logo-linkedin"></span></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-6 py-2">
-          <p id="copyright">&copy; 2020 <a href="https://macodeid.com/">MACode ID</a>. All rights reserved</p>
-        </div>
-        <div class="col-sm-6 py-2 text-right">
-          <div class="d-inline-block px-3">
-            <a href="#">Privacy</a>
-          </div>
-          <div class="d-inline-block px-3">
-            <a href="#">Contact Us</a>
-          </div>
-        </div>
-      </div>
-    </div> <!-- .container -->
-  </footer> <!-- .page-footer -->
+			  
+			  
+			  <script>
+			  var video = document.getElementById("myVideo");
+			  </script>
+ 
+ 
 
 
-  <script src="../assets/js/jquery-3.5.1.min.js"></script>
+	<div class="container">
+		<div class="row">
 
-  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+			<div class="col-md-offset-2 col-md-8 col-sm-12">
+				<h6><strong>About Us <i class="fa fa-globe"></i></strong></h6>
+				<br>
+				<h7>
+					Symetic Ing is a technical assistance company specialising on multisubject engineering services within energy and industry.
+					We have chosen to focus on these sectors which we have a strong impact in our future.
+				</h7>
+				<p></p>
+				<h7>
+					Major players trust us to manage and handle their projects in France and abroad.
+					We support our clients in all phases of engineering projects, from the concept stage to implementation.
+				</h7>
+				<p></p>
+				<h7>We put our will and commitment at the service of our clients and our consultants with the challenge of providing the most suitable solutions.
+					Our network of consultants and partners has enabled us to increase our knowledge and expertise.
+				</h7>
+				<p></p>
+				<h7>
+					Communication and sharing benefits of success of our employees is essential to attain a better partnership.
+					Our commitment is founded on knowledge and skills, regarding our clients
+				</h7>
+				<p></p>
+				<h7>
+					We take pride in respecting ethical human values.
+				</h7>
+				<p></p>
+				<h7>
+					Knowing how to understand, how to adapt and how to listen are our priorities to build our confidence.
+				</h7>
+			</div>
 
-  <script src="../assets/vendor/wow/wow.min.js"></script>
 
-  <script src="../assets/vendor/owl-carousel/js/owl.carousel.min.js"></script>
 
-  <script src="../assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+		 <div id="team">
+			<div class="container">
+				<div class="row">
+		
+	
+				 </div>
+				 
+				 <div class="row mt30"> 
+					<div class="col-md-12 col-sm-12">
+						<hr>
+					</div>
+					<div class="col-md-6 col-sm-6">
+						<p><strong>Symetic supports you through the quality of its different services:</strong></p>
+						<h4><i class="fa fa-angle-double-right"></i> Business & Development</h4>
+						<p>Support, Adapt, Evolve.</p>
+						<h4><i class="fa fa-angle-double-right"></i> Recruitment</h4>
+						<p>Identify, Qualify, Structured.</p>
+						<h4><i class="fa fa-angle-double-right"></i> Administrative</h4>
+						<p>Evolve, Adviser, Available.</p>
+						<p></p>
+						<p><strong>An enthusiastic, dynamic team caring for you!
+Efficiency, proximity and responsiveness are our keywords for success.</strong></p>
+					</div>
+					<div class="col-md-6 col-sm-6">
+						<strong>ENERGY</strong>
+						
+							<div class="progress">
+								<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
+							</div>
+						<strong>ENVIRONMENT</strong>
+						
+							<div class="progress">
+								<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
+							</div>
+						<strong>IT</strong>
+						
+							<div class="progress">
+								<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
+							</div>
+							<strong>CIVIL INFRASTRUCTURE</strong>
+						
+							<div class="progress">
+								<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>		
 
-  <script src="../assets/vendor/animateNumber/jquery.animateNumber.min.js"></script>
+		
+		</div>
+	</div>
+</div> 
 
-  <script src="../assets/js/google-maps.js"></script>
 
-  <script src="../assets/js/theme.js"></script>
+
+<!-- footer section -->
+<%- include('partials/footer'); %>
+
+
+
+
+<!-- javascript js -->	
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>	
+<script src="js/nivo-lightbox.min.js"></script>
+<script src="js/custom.js"></script>
 
 </body>
 </html>

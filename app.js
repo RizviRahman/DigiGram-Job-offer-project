@@ -32,8 +32,6 @@ app.use(
 );
 
 
-app.use("/",pathLog, mainRouter);
-
 app.get('/logout',(req,res)=>{
     req.session.destroy((err) => {
         if(err) {
@@ -42,6 +40,10 @@ app.get('/logout',(req,res)=>{
         res.redirect('/');
     });
 });
+
+app.use("/",pathLog, mainRouter);
+
+
 
 
 app.listen(process.env.PORT, ()=>{
